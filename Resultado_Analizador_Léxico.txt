@@ -1,0 +1,97 @@
+/****------ Análisis de resultados ------****/ 
+
+
+LINEA 1		SIMBOLO
+  <Identificador>		package
+  <Identificador>		codigoLexicoBasico
+  <Punto y coma>	;
+LINEA 2
+LINEA 3
+  <Identificador>		import
+  <Identificador>		java
+  <Punto>		.
+  <Identificador>		io
+  <Punto>		.
+  <Identificador>		File
+  <Punto y coma>	;
+LINEA 4
+LINEA 5
+  <Identificador>		public
+  <Identificador>		class
+  <Identificador>		Principal
+  <Llave de apertura>	{
+LINEA 6
+  <Identificador>		public
+  <Identificador>		static
+  <Identificador>		void
+  <Reservada main>	main
+  <Parentesis de apertura>	(
+  <Tipo de dato>	String
+  <Simbolo no definido>
+  <Simbolo no definido>
+  <Identificador>		args
+  <Parentesis de cierre>	)
+  <Llave de apertura>	{
+LINEA 7
+  <Tipo de dato>	String
+  <Identificador>		ruta
+  <Operador igual>	=
+  <Comillas>		"
+  <Punto>		.
+  <Punto>		.
+  <Simbolo no definido>
+  <Identificador>		AnalizadorLexicoBasico
+  <Simbolo no definido>
+  <Identificador>		src
+  <Simbolo no definido>
+  <Identificador>		codigoLexicoBasico
+  <Simbolo no definido>
+  <Identificador>		LexicoBasico
+  <Punto>		.
+  <Identificador>		flex
+  <Comillas>		"
+  <Punto y coma>	;
+LINEA 8
+  <Identificador>		generarLexicoBasico
+  <Parentesis de apertura>	(
+  <Identificador>		ruta
+  <Parentesis de cierre>	)
+  <Punto y coma>	;
+LINEA 9
+  <Llave de cierre>	}
+LINEA 10
+  <Identificador>		public
+  <Identificador>		static
+  <Identificador>		void
+  <Identificador>		generarLexicoBasico
+  <Parentesis de apertura>	(
+  <Tipo de dato>	String
+  <Identificador>		ruta
+  <Parentesis de cierre>	)
+  <Llave de apertura>	{
+LINEA 11
+  <Identificador>		File
+  <Identificador>		archivo
+  <Operador igual>	=
+  <Identificador>		new
+  <Identificador>		File
+  <Parentesis de apertura>	(
+  <Identificador>		ruta
+  <Parentesis de cierre>	)
+  <Punto y coma>	;
+LINEA 12
+  <Identificador>		JFlex
+  <Punto>		.
+  <Identificador>		Main
+  <Punto>		.
+  <Identificador>		generate
+  <Parentesis de apertura>	(
+  <Identificador>		archivo
+  <Parentesis de cierre>	)
+  <Punto y coma>	;
+LINEA 13
+  <Llave de cierre>	}
+LINEA 14
+  <Llave de cierre>	}
+LINEA 15
+LINEA 16

@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.nio.file.Files;
@@ -33,6 +34,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
         initComponents();
     }
 
+    String rutaArchivo = "";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +51,10 @@ public class FrmAnalizador extends javax.swing.JFrame {
         txtAnalizarLex = new javax.swing.JTextArea();
         btnArchivo = new javax.swing.JButton();
         Borrar1 = new javax.swing.JButton();
+        jBGuardar = new javax.swing.JButton();
+        jBGenerarArchvio = new javax.swing.JButton();
+        jLabelInforme = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +91,20 @@ public class FrmAnalizador extends javax.swing.JFrame {
             }
         });
 
+        jBGuardar.setText("Guardar cambios");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
+
+        jBGenerarArchvio.setText("Generar Archivo");
+        jBGenerarArchvio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGenerarArchvioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,16 +112,29 @@ public class FrmAnalizador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(BotonAnalisis)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addComponent(Borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2))
-                .addGap(73, 73, 73))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BotonAnalisis)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addComponent(Borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2))
+                        .addGap(73, 73, 73))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
+                            .addComponent(jLabelInforme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jBGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBGenerarArchvio)
+                .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,9 +147,17 @@ public class FrmAnalizador extends javax.swing.JFrame {
                     .addComponent(btnArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBGenerarArchvio)
+                    .addComponent(jBGuardar))
+                .addGap(31, 31, 31)
+                .addComponent(jLabelInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,6 +297,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
         JFileChooser escoger = new JFileChooser();
         escoger.showOpenDialog(null);
         File arc = new File(escoger.getSelectedFile().getAbsolutePath());
+        rutaArchivo = arc.getPath();
 
         try {
             String ST = new String(Files.readAllBytes(arc.toPath()));
@@ -270,6 +312,40 @@ public class FrmAnalizador extends javax.swing.JFrame {
     private void Borrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Borrar1ActionPerformed
         txtAnalizarLex.setText(null);
     }//GEN-LAST:event_Borrar1ActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        // TODO add your handling code here:
+        File archivo = new File(rutaArchivo);
+        PrintWriter escribir;
+        try {
+            escribir = new PrintWriter(archivo);
+            escribir.print(Resultado.getText());
+            escribir.close();
+            
+            jLabelInforme.setText("Guardado en:");
+            jLabel2.setText(rutaArchivo);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBGenerarArchvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarArchvioActionPerformed
+        // TODO add your handling code here:
+        // Directorio de prueba
+        String directorioRaiz = System.getProperty("user.dir");
+        File archivo = new File(directorioRaiz + "\\Resultado_Analizador_Léxico.txt");
+        PrintWriter escribirResultado;
+        try {
+            escribirResultado = new PrintWriter(archivo);
+            escribirResultado.print("/****------ Análisis de resultados ------****/ \n\n\n");
+            escribirResultado.print(txtAnalizarLex.getText());
+            escribirResultado.close();
+            jLabelInforme.setText("Guardado en:");
+            jLabel2.setText(archivo.getPath());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBGenerarArchvioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,8 +387,14 @@ public class FrmAnalizador extends javax.swing.JFrame {
     private javax.swing.JButton BotonAnalisis;
     private javax.swing.JTextArea Resultado;
     private javax.swing.JButton btnArchivo;
+    private javax.swing.JButton jBGenerarArchvio;
+    private javax.swing.JButton jBGuardar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelInforme;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtAnalizarLex;
     // End of variables declaration//GEN-END:variables
+
+
 }
