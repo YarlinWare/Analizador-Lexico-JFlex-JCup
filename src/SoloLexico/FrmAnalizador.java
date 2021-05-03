@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,6 +17,9 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.nio.file.Files;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java_cup.runtime.Symbol;
@@ -331,9 +335,12 @@ public class FrmAnalizador extends javax.swing.JFrame {
 
     private void jBGenerarArchvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarArchvioActionPerformed
         // TODO add your handling code here:
-        // Directorio de prueba
         String directorioRaiz = System.getProperty("user.dir");
-        File archivo = new File(directorioRaiz + "\\Resultado_Analizador_Léxico.txt");
+        Date date = new Date();
+        DateFormat hourdateFormat = new SimpleDateFormat("HH.mm.ss dd-MM-yyyy");
+        String fechaCreacion = hourdateFormat.format(date);
+    
+        File archivo = new File(directorioRaiz +"\\Analisis_"+fechaCreacion+ ".txt");
         PrintWriter escribirResultado;
         try {
             escribirResultado = new PrintWriter(archivo);
