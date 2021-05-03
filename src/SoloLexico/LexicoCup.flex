@@ -25,6 +25,7 @@ espacio=[ \t \r \n]+
 /* Palabra reservada Double */
 ( double ) {return new Symbol(sym.Doble, yychar, yyline, yytext());}
 
+
 /* Espacios en blanco */
 {espacio} {/*Ignore*/}
 
@@ -54,6 +55,94 @@ espacio=[ \t \r \n]+
 
 /* Palabra reservada For */
 ( for ) {return new Symbol(sym.For, yychar, yyline, yytext());}
+
+
+
+
+
+
+
+
+
+/* Palabra reservada Byte */
+( byte ) {return new Symbol(sym.Byte, yychar, yyline, yytext());}
+
+
+/* Palabra reservada Switch */
+( switch ) {return new Symbol(sym.Switch, yychar, yyline, yytext());}
+/* Palabra reservada Break */
+( break ) {return new Symbol(sym.Break, yychar, yyline, yytext());}
+/* Palabra reservada Case */
+( case ) {return new Symbol(sym.Case, yychar, yyline, yytext());}
+
+
+
+
+
+/* Palabra reservada Char */
+( char ) {return new Symbol(sym.Char, yychar, yyline, yytext());}
+/* Palabra reservada Long */
+( long ) {return new Symbol(sym.Long, yychar, yyline, yytext());}
+/* Palabra reservada Float */
+( float ) {return new Symbol(sym.Float, yychar, yyline, yytext());}
+
+
+/* Palabra reservada Const */
+( const ) {return new Symbol(sym.Const, yychar, yyline, yytext());}
+/* Palabra reservada Continue */
+( continue ) {return new Symbol(sym.Continue, yychar, yyline, yytext());}
+/* Palabra reservada Default */
+( default ) {return new Symbol(sym.Default, yychar, yyline, yytext());}
+/* Palabra reservada Enum */
+( enum ) {return new Symbol(sym.Enum, yychar, yyline, yytext());}
+/* Palabra reservada Extern */
+( extern ) {return new Symbol(sym.Extern, yychar, yyline, yytext());}
+/* Palabra reservada Goto */
+( goto ) {return new Symbol(sym.Goto, yychar, yyline, yytext());}
+/* Palabra reservada Register */
+( register ) {return new Symbol(sym.Register, yychar, yyline, yytext());}
+/* Palabra reservada Return  */
+( return  ) {return new Symbol(sym.Return , yychar, yyline, yytext());}
+/* Palabra reservada Union */
+( union ) {return new Symbol(sym.Union, yychar, yyline, yytext());}
+/* Palabra reservada Short */
+( short ) {return new Symbol(sym.Short, yychar, yyline, yytext());}
+/* Palabra reservada Unsigned */
+( unsigned ) {return new Symbol(sym.Unsigned, yychar, yyline, yytext());}
+/* Palabra reservada Struct */
+( struct ) {return new Symbol(sym.Struct , yychar, yyline, yytext());}
+/* Palabra reservada Typedef */
+( typedef ) {return new Symbol(sym.Typedef, yychar, yyline, yytext());}
+
+
+
+
+
+/* Funcion reservada Cin */
+( cin ) {return new Symbol(sym.Cin, yychar, yyline, yytext());}
+/* Funcion reservada Cout */
+( cout ) {return new Symbol(sym.Cout, yychar, yyline, yytext());}
+/* Funcion Printf */
+( printf ) {return new Symbol(sym.Printf, yychar, yyline, yytext());}
+/* Funcion reservada Scanf */
+( scanf ) {return new Symbol(sym.Scanf, yychar, yyline, yytext());}
+
+
+
+
+
+/* Palabra reservada D_puntos */
+( ":" ) {return new Symbol(sym.D_puntos, yychar, yyline, yytext());}
+
+
+
+
+
+
+
+
+
+
 
 /* Operador Igual */
 ( "=" ) {return new Symbol(sym.Igual, yychar, yyline, yytext());}
@@ -114,6 +203,7 @@ espacio=[ \t \r \n]+
 
 /* P_coma */
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
+
 
 /* Identificador */
 {L}({L}|{D})* {return new Symbol(sym.Identificador, yychar, yyline, yytext());}

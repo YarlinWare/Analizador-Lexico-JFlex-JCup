@@ -34,5 +34,38 @@ public enum Tokens {
     P_Coma,
     Identificador,
     Numero,
-    ERROR
+    
+    
+    
+    Switch,
+    Break,
+    Case,
+    Byte,
+    D_puntos,
+    
+    Char,
+    Long,
+    Float,
+    Const,
+    Continue,
+    Default,
+    Enum,
+
+    Extern,
+    Goto,
+    Register,
+    Return,
+    Union,
+    Short,
+    Unsigned,
+    Struct,
+    Typedef,
+    Cout,
+    Scanf,
+    Cin,
+    Printf,
+
+
+    
+    ERROR,
 }

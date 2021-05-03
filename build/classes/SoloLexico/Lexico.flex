@@ -16,6 +16,28 @@ espacio=[ \t \r]+
 /* Double */
 (double) {lexemas=yytext(); return Doble;}
 
+
+
+
+
+/* Byte */
+(byte) {lexemas=yytext(); return Byte;}
+/* Char */
+( char ) {lexemas=yytext(); return Char;}
+/* Long */
+( long ) {lexemas=yytext(); return Long;}
+/* Float */
+( float ) {lexemas=yytext(); return Float;}
+
+
+
+
+
+
+
+
+
+
 /* Espacios en blanco */
 {espacio} {/*Ignore*/}
 
@@ -42,6 +64,80 @@ espacio=[ \t \r]+
 
 /* Palabra reservada While */
 ( while ) {lexemas=yytext(); return While;}
+
+
+
+
+
+
+
+
+
+/* Palabra reservada Switch */
+( switch ) {lexemas=yytext(); return Switch;}
+/* Palabra reservada Break */
+( break ) {lexemas=yytext(); return Break;}
+/* Palabra reservada Case */
+( case ) {lexemas=yytext(); return Case;}
+/* Palabra reservada Do */
+( do ) {lexemas=yytext(); return Do;}
+
+
+
+
+
+/* Palabra reservada Const */
+( const ) {lexemas=yytext(); return Const;}
+/* Palabra reservada Continue */
+( continue ) {lexemas=yytext(); return Continue;}
+/* Palabra reservada Default */
+( default ) {lexemas=yytext(); return Default;}
+/* Palabra reservada Enum */
+( enum ) {lexemas=yytext(); return Enum;}
+/* Palabra reservada Extern */
+( extern ) {lexemas=yytext(); return Extern;}
+/* Palabra reservada Goto */
+( goto ) {lexemas=yytext(); return Goto;}
+/* Palabra reservada Register */
+( register ) {lexemas=yytext(); return Register;}
+/* Palabra reservada Return  */
+( return  ) {lexemas=yytext(); return Return;}
+/* Palabra reservada Union */
+( union ) {lexemas=yytext(); return Union;}
+/* Palabra reservada Short */
+( short ) {lexemas=yytext(); return Short;}
+/* Palabra reservada Unsigned */
+( unsigned ) {lexemas=yytext(); return Unsigned;}
+/* Palabra reservada Struct */
+( struct ) {lexemas=yytext(); return Struct;}
+/* Palabra reservada Typedef */
+( typedef ) {lexemas=yytext(); return Typedef;}
+
+
+
+/* D_puntos */
+( ":" ) {lexemas=yytext(); return D_puntos;}
+/* Funcion Printf */
+( printf ) {lexemas=yytext(); return Printf;}
+/* Funcion reservada Cin */
+( cin ) {lexemas=yytext(); return Cin;}
+/* Funcion Cout */
+( cout ) {lexemas=yytext(); return Cout;}
+/* Funcion reservada Scanf */
+( scanf ) {lexemas=yytext(); return Scanf;}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Operador Igual */
 ( "=" ) {lexemas=yytext(); return Igual;}

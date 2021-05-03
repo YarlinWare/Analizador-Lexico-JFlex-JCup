@@ -19,9 +19,14 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Doble,
     Igual, Suma, Resta, Multiplicacion, Division, Op_logico, Op_relacional,
     Op_atribucion, Op_incremento, Op_booleano, Parent_a, Parent_c,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Punto, Coma, Identificador,
-    Numero, ERROR;
+    Numero, ERROR,
+
+    Byte,D_puntos,Char,Long,Float,Switch,Break,Case,Const,Continue,Default,
+    Enum,Extern,Goto,Register,Return,Union,Short,Unsigned,Struct,Typedef,Printf,
+    Cout, Scanf, Cin ;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR;
+    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR
+;
 
 start with INICIO;
 
@@ -39,7 +44,7 @@ SENTENCIA ::=
     SENTENCIA WHILE |
     WHILE |
     SENTENCIA FOR |
-    FOR
+    FOR 
 ;
 DECLARACION ::= 
     T_dato Identificador P_coma | 
@@ -68,6 +73,13 @@ IF_ELSE ::= If Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c El
 ;
 WHILE ::= While Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
 ;
+
+/*
+DO_WHILE ::= Do Llave_a SENTENCIA Llave_c While Parentesis_a SENTENCIA_BOOLEANA Parentesis_c P_coma
+;
+*/
+
+
 FOR ::= For Parent_a SENTENCIA_FOR Parent_c Llave_a SENTENCIA Llave_c
 ;
 SENTENCIA_FOR ::=
@@ -79,3 +91,4 @@ DECLARACION_FOR ::=
     Identificador Op_incremento | 
     Op_incremento Identificador
 ;
+
