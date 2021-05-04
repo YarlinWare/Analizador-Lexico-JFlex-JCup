@@ -8,3 +8,10 @@
 4. Implementar la creación del archivo de la tabla de simbolos.
 5. Agregar los elementos correspondientes a los comentarios en pantalla del analizador léxico.
 6. Los lexemas y palabras reservadas deben estar de acuerdo con lo que se cargue en el aula virtual.
+
+#### Equipo de trabajo
+
+Integrante  | Código
+------------- | -------------
+Johan Sebastián González Mendoza | 20172020039
+Cristhian Mauricio Yara Pardo | 20181020081
